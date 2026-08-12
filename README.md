@@ -14,6 +14,7 @@ A fact on the internet is something you **trust**. A fact in ACSA is something y
 
 | Doc | For |
 |---|---|
+| [**AGENTS.md**](AGENTS.md) | **drop it in your repo** — your coding agent (Claude Code, Codex, Cursor…) then uses acsa from plain English; you never type a command |
 | [**PITCH.md**](PITCH.md) | the one-page why — hand it to a decision-maker |
 | [**QUICKSTART.md**](QUICKSTART.md) | pull verified facts into your agent in ~5 minutes, nothing installed |
 | [**INTEGRATE.md**](INTEGRATE.md) | wire consume **and** contribute into your agent's coding loop |
