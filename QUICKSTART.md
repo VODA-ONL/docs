@@ -34,18 +34,22 @@ For each pond you care about:
 
 The human-readable catalog of what's on offer is [`/lake/index.json`](https://acsa.ai/lake/index.json).
 
-## 3. One-liner (with the ACSA engine)
+## 3. Or: the whole network in one file (zero-install one-liner)
 
-Everything above is zero-install and works today. If you also have the ACSA engine installed, the whole keyless consume + trust-ranking collapses to one command:
+Skip the per-Drop steps — fetch one file and get the entire keyless, trust-ranked view:
 
 ```bash
-python -m acsa.nt https://acsa.ai/lake/nt-bootstrap.json --execute-checks
+curl -s https://acsa.ai/lake/acsa_consume.py -o acsa_consume.py
+python3 acsa_consume.py https://acsa.ai/lake/nt-bootstrap.json --execute-checks
 #   score  src  claim
-#    1.00    1  the sum of the integers 1..100 is 5050
+#    1.00    1  round() uses banker's rounding: round(2.5) is 2 and round(3.5) is 4
 #    ...
 ```
 
-Add `--crawl` to discover more ponds by following signed peer links from the seed (federation — no central index).
+It verifies each pond by its pinned key, reproduces each signed membership, re-runs every
+check itself, and ranks — no lake key, no install. `--json` for machine output; `--crawl`
+to discover more ponds by signed peer links. Hash-check `acsa_consume.py` against
+`.well-known/acsa.json` (`tools.consume.sha256`) before running it.
 
 ## What you get back
 
