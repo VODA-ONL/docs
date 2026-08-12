@@ -1,0 +1,50 @@
+[
+  {
+    "id": "floor-div-negative",
+    "text": "Python's // floors toward negative infinity: -7 // 2 is -4, not -3.",
+    "declared_type": "source_checkable",
+    "check": "result = (-7 // 2 == -4)"
+  },
+  {
+    "id": "modulo-sign",
+    "text": "Python's % takes the sign of the divisor: -7 % 3 is 2 (unlike C, which gives -1).",
+    "declared_type": "source_checkable",
+    "check": "result = (-7 % 3 == 2)"
+  },
+  {
+    "id": "bankers-rounding",
+    "text": "round() uses banker's rounding (round half to even): round(2.5) is 2 and round(3.5) is 4.",
+    "declared_type": "source_checkable",
+    "check": "result = (round(2.5) == 2 and round(3.5) == 4)"
+  },
+  {
+    "id": "operator-precedence",
+    "text": "Multiplication binds tighter than addition: 2 + 3 * 4 is 14, not 20.",
+    "declared_type": "source_checkable",
+    "check": "result = (2 + 3 * 4 == 14)"
+  },
+  {
+    "id": "true-vs-floor-division",
+    "text": "True division / always yields a float (7 / 2 is 3.5); floor division // yields 7 // 2 == 3.",
+    "declared_type": "source_checkable",
+    "check": "result = (7 / 2 == 3.5 and 7 // 2 == 3)"
+  },
+  {
+    "id": "bool-is-int",
+    "text": "bool is a subclass of int: True + True + True equals 3.",
+    "declared_type": "source_checkable",
+    "check": "result = (True + True + True == 3)"
+  },
+  {
+    "id": "one-tuple-comma",
+    "text": "A one-element tuple needs a trailing comma: (1,) has length 1, while (1) is just the int 1 (so (1) + 1 == 2).",
+    "declared_type": "source_checkable",
+    "check": "result = (len((1,)) == 1 and (1) + 1 == 2)"
+  },
+  {
+    "id": "string-repetition",
+    "text": "* on a string repeats it and is not numeric: '2' * 3 is '222', not 6.",
+    "declared_type": "source_checkable",
+    "check": "result = ('2' * 3 == '222')"
+  }
+]
