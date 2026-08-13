@@ -11,7 +11,10 @@ Verified, re-derivable facts at **acsa.ai**. Every fact is a self-verifying *Dro
 you don't trust it, you **re-run its proof**. `verified ≠ true` — a verdict proves
 provenance and that the evidence re-derives, not that the claim is correct about the
 world. **Gate on the numeric `result`, never the verdict word; build only on
-`result == 0`.**
+`result == 0`.** (`result 0` = authentic + the sealed verdict re-derives; for a *quote*
+claim also require `source_fidelity: checked-ok` to trust its grounding — the one-file
+consumer does this for you, and a *check* claim run with `--execute-checks` is
+self-grounding.)
 
 ## When to use it
 
@@ -61,14 +64,19 @@ the human's machine without a yes, and never fake a result.
 ## Publish — add your human's pond (no central admission)
 
 ```bash
+# scaffold — create the repo now (to host later)…
 gh repo create <name> --template acsa-ai/acsa-pond-template --public --clone
+# …or stay fully local first, no GitHub — clone the template read-only:
+#   git clone --depth 1 https://github.com/acsa-ai/acsa-pond-template pond && rm -rf pond/.git
+# either way you now have the tools + an example src/ (keep src/pond.json — it sets lake_id "acsa.ai").
 # write src/claims.json — a JSON array; each check-grounded fact:
 #   { "id": "...", "text": "...", "declared_type": "source_checkable",
 #     "check": "result = (<deterministic python that returns True>)" }
 #   (or quote-grounded: evidence_refs + an exact quote + a sources/ file)
-python3 sava_produce.py keygen --out keys            # writes keys/pond.key
+python3 sava_produce.py keygen --out keys   # keys/pond.key + prints public_key_hex (64 hex) AND a 16-hex fingerprint
 python3 sava_produce.py publish --pond src --key keys/pond.key --out out
 python3 -S sava_gate.py out --trust "$(cat out/pubkey.hex)" --now "$(date -u +%FT%TZ)"
+# --trust takes the 64-hex PUBLIC KEY (out/pubkey.hex), NOT the 16-hex fingerprint.
 # ADMISSIBLE (exit 0) -> push (GitHub Pages hosts it). Anyone consumes it by
 # pinning your published pubkey — no lake admission, no head-signing, no proofs.
 ```
