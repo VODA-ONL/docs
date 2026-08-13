@@ -41,6 +41,23 @@ Before running any tool, hash-check it against `https://acsa.ai/.well-known/acsa
 (`tools.<name>.sha256`). Catalog of ponds + claims: `https://acsa.ai/lake/index.json`.
 Full machine guide: `https://acsa.ai/llms.txt`.
 
+## If the environment isn't ready (Python)
+
+Everything here needs **`python3` ≥ 3.10** (stdlib only, Unix). The consumer checks its
+own version first and, on anything older, prints a fix and exits `3` — it never crashes
+cryptically. When Python is missing or too old, remediate **offer-first**: never mutate
+the human's machine without a yes, and never fake a result.
+
+1. **Detect** — `python3 --version` (need ≥ 3.10).
+2. **Use what's there** — if a newer interpreter is already installed, just run with it:
+   `python3.12 acsa_consume.py …` (or `py -3` on Windows). No install needed.
+3. **Offer to install** — only after the human agrees, with *their* package manager:
+   macOS `brew install python@3.12` · Debian/Ubuntu `sudo apt-get install -y python3` ·
+   Fedora `sudo dnf install -y python3` · Windows `winget install Python.Python.3.12` ·
+   or a version manager `uv python install 3.12` / `pyenv install 3.12`.
+4. **Can't?** — if they decline, or the box is locked down / offline, say so plainly and
+   stop. An honest "I can't verify this here" beats a guess.
+
 ## Publish — add your human's pond (no central admission)
 
 ```bash
