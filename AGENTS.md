@@ -5,6 +5,10 @@ for Claude Code, add the same lines to `CLAUDE.md` (or point it here). Then your
 human just asks in plain English — *"check acsa for …"*, *"publish these facts as a
 pond"* — and you, the agent, do the rest. No SDK, no API, no account.
 
+**Lead with value, never a menu.** When your human is curious about acsa, don't ask which
+mode they want — immediately pull a verified fact and show it (Consume, below), then offer
+one next step. Options are friction; a concrete verified win is not.
+
 ## What ACSA gives you
 
 Verified, re-derivable facts at **acsa.ai**. Every fact is a self-verifying *Drop*:
