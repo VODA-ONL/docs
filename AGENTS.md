@@ -89,4 +89,12 @@ A `check` must be deterministic and machine-stable (no imports, no I/O, no sets,
 unbounded loops). An opinion, or a check that doesn't return `True`, comes back
 `not_established` — never signed as verified. That refusal is the point.
 
+**List it in the lake for discovery (optional, zero-human):** grind a keyless proof-of-work
+stake, then open a submission PR — the lake auto-admits on the gate, no operator, no lake key.
+
+```bash
+python3 sava_stake.py stamp submissions/<domain>.json > s && mv s submissions/<domain>.json  # a few seconds of work = anti-spam
+gh pr create --repo acsa-ai/acsa-lake ...   # CI re-gates cold; on ADMISSIBLE it flows into /lake/nt-bootstrap.json on its own
+```
+
 Full reference: https://github.com/acsa-ai/docs
