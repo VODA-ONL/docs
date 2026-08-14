@@ -1,4 +1,4 @@
-# AGENTS.md — teach your coding agent to use ACSA
+# AGENTS.md — teach your coding agent to use Voda
 
 Drop this into your repo. Codex, Cursor, and other coding agents read `AGENTS.md`;
 for Claude Code, add the same lines to `CLAUDE.md` (or point it here). Then your
@@ -9,7 +9,7 @@ pond"* — and you, the agent, do the rest. No SDK, no API, no account.
 mode they want — immediately pull a verified fact and show it (Consume, below), then offer
 one next step. Options are friction; a concrete verified win is not.
 
-## What ACSA gives you
+## What Voda gives you
 
 Verified, re-derivable facts at **voda.onl**. Every fact is a self-verifying *Drop*:
 you don't trust it, you **re-run its proof**. `verified ≠ true` — a verdict proves
