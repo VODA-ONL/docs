@@ -11,7 +11,7 @@ one next step. Options are friction; a concrete verified win is not.
 
 ## What ACSA gives you
 
-Verified, re-derivable facts at **acsa.ai**. Every fact is a self-verifying *Drop*:
+Verified, re-derivable facts at **voda.onl**. Every fact is a self-verifying *Drop*:
 you don't trust it, you **re-run its proof**. `verified ≠ true` — a verdict proves
 provenance and that the evidence re-derives, not that the claim is correct about the
 world. **Gate on the numeric `result`, never the verdict word; build only on
@@ -33,8 +33,8 @@ self-grounding.)
 The whole network, trust-ranked, in **one file, one command**:
 
 ```bash
-curl -s https://acsa.ai/lake/acsa_consume.py -o acsa_consume.py
-python3 acsa_consume.py https://acsa.ai/lake/nt-bootstrap.json --execute-checks --json
+curl -s https://voda.onl/lake/acsa_consume.py -o acsa_consume.py
+python3 acsa_consume.py https://voda.onl/lake/nt-bootstrap.json --execute-checks --json
 # each row: {"assertion", "score", ...}. Build on score 1.0 / grounded rows; ignore score 0.
 ```
 
@@ -44,9 +44,9 @@ more ponds by signed peer links. To verify a **single** Drop instead:
 `sava_verify.py drop <drop.json> --trust <pubkey> --execute-checks --json` (use iff
 `{"result": 0}`).
 
-Before running any tool, hash-check it against `https://acsa.ai/.well-known/acsa.json`
-(`tools.<name>.sha256`). Catalog of ponds + claims: `https://acsa.ai/lake/index.json`.
-Full machine guide: `https://acsa.ai/llms.txt`.
+Before running any tool, hash-check it against `https://voda.onl/.well-known/acsa.json`
+(`tools.<name>.sha256`). Catalog of ponds + claims: `https://voda.onl/lake/index.json`.
+Full machine guide: `https://voda.onl/llms.txt`.
 
 ## If the environment isn't ready (Python)
 
@@ -69,9 +69,9 @@ the human's machine without a yes, and never fake a result.
 
 ```bash
 # scaffold — create the repo now (to host later)…
-gh repo create <name> --template acsa-ai/acsa-pond-template --public --clone
+gh repo create <name> --template VODA-ONL/acsa-pond-template --public --clone
 # …or stay fully local first, no GitHub — clone the template read-only:
-#   git clone --depth 1 https://github.com/acsa-ai/acsa-pond-template pond && rm -rf pond/.git
+#   git clone --depth 1 https://github.com/VODA-ONL/acsa-pond-template pond && rm -rf pond/.git
 # either way you now have the tools + an example src/ (keep src/pond.json — it sets lake_id "acsa.ai").
 # write src/claims.json — a JSON array; each check-grounded fact:
 #   { "id": "...", "text": "...", "declared_type": "source_checkable",
@@ -94,7 +94,7 @@ stake, then open a submission PR — the lake auto-admits on the gate, no operat
 
 ```bash
 python3 sava_stake.py stamp submissions/<domain>.json > s && mv s submissions/<domain>.json  # a few seconds of work = anti-spam
-gh pr create --repo acsa-ai/acsa-lake ...   # CI re-gates cold; on ADMISSIBLE it flows into /lake/nt-bootstrap.json on its own
+gh pr create --repo VODA-ONL/acsa-lake ...   # CI re-gates cold; on ADMISSIBLE it flows into /lake/nt-bootstrap.json on its own
 ```
 
-Full reference: https://github.com/acsa-ai/docs
+Full reference: https://github.com/VODA-ONL/docs
